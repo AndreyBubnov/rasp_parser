@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as bs
 headers = {'accept': '*/*',
            'user-agent': 'Mozilla/5.0(X11;Linux x86_64...)Geco/20100101 Firefox/60.0'}
 
-base_url = 'https://go.tpu.ru/JWQeqNnO' #Url to parse
+base_url = 'https://go.tpu.ru/JWQeqNnO'  # Url to parse
 
 timetable = []
 session = requests.Session()
@@ -60,7 +60,7 @@ def get_end_time(number):
     return end_time[number]
 
 
-def rasp_parse(base_url, headers):
+def rasp_parse():
     if request.status_code == 200:
         tds = soup.find_all('td', attrs={'class': 'cell'})  # tds with subjects
         time = 0
@@ -101,5 +101,5 @@ def file_writer(timetable):
                 t['end_date']))
 
 
-timetable = rasp_parse(base_url, headers)
+timetable = rasp_parse()
 file_writer(timetable)
