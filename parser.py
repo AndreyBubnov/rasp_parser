@@ -37,8 +37,8 @@ def get_dates():
     dates = []
     ths = soup.find_all('th', {'width': '16%'})  # ths with Calendar dates
     for th in ths:
-        date = th.text[17:25].replace('.', '/')
-        tmp = date.split('/')
+        date = th.text[17:25]
+        tmp = date.split('.')
         tmp[0], tmp[1] = tmp[1], tmp[0]
         tmp = '/'.join(tmp)
         dates.append(tmp)
