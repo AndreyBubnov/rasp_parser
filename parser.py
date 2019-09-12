@@ -63,8 +63,8 @@ def get_end_time(number):
 def rasp_parse():
     if request.status_code == 200:
         tds = soup.find_all('td', attrs={'class': 'cell'})  # tds with subjects
-        time = 0
-        day = 0
+        time = 0  # Id for time
+        day = 0  # Id for day
         row_counter = 1
         for td in tds:
             if td.text != "" and td.text.find('Военная подготовка', 0, len(td.text)) == -1:
